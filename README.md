@@ -35,6 +35,7 @@ Contributions are welcomed!
 
 -------------------------
 
+[![Build Status](https://travis-ci.org/apache/cordova-plugin-camera.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-camera)
 
 # cordova-plugin-camera
 
@@ -90,20 +91,20 @@ Documentation consists of template and API docs produced from the plugin JS code
 
 
 * [camera](#module_camera)
-    * [.getPicture(successCallback, errorCallback, options)](#module_camera.getPicture)
-    * [.cleanup()](#module_camera.cleanup)
-    * [.onError](#module_camera.onError) : <code>function</code>
-    * [.onSuccess](#module_camera.onSuccess) : <code>function</code>
-    * [.CameraOptions](#module_camera.CameraOptions) : <code>Object</code>
+  * [.getPicture(successCallback, errorCallback, options)](#module_camera.getPicture)
+  * [.cleanup()](#module_camera.cleanup)
+  * [.onError](#module_camera.onError) : <code>function</code>
+  * [.onSuccess](#module_camera.onSuccess) : <code>function</code>
+  * [.CameraOptions](#module_camera.CameraOptions) : <code>Object</code>
 
 
 * [Camera](#module_Camera)
-    * [.DestinationType](#module_Camera.DestinationType) : <code>enum</code>
-    * [.EncodingType](#module_Camera.EncodingType) : <code>enum</code>
-    * [.MediaType](#module_Camera.MediaType) : <code>enum</code>
-    * [.PictureSourceType](#module_Camera.PictureSourceType) : <code>enum</code>
-    * [.PopoverArrowDirection](#module_Camera.PopoverArrowDirection) : <code>enum</code>
-    * [.Direction](#module_Camera.Direction) : <code>enum</code>
+  * [.DestinationType](#module_Camera.DestinationType) : <code>enum</code>
+  * [.EncodingType](#module_Camera.EncodingType) : <code>enum</code>
+  * [.MediaType](#module_Camera.MediaType) : <code>enum</code>
+  * [.PictureSourceType](#module_Camera.PictureSourceType) : <code>enum</code>
+  * [.PopoverArrowDirection](#module_Camera.PopoverArrowDirection) : <code>enum</code>
+  * [.Direction](#module_Camera.Direction) : <code>enum</code>
 
 * [CameraPopoverHandle](#module_CameraPopoverHandle)
 * [CameraPopoverOptions](#module_CameraPopoverOptions)
@@ -116,11 +117,11 @@ Documentation consists of template and API docs produced from the plugin JS code
 ### camera.getPicture(successCallback, errorCallback, options)
 Takes a photo using the camera, or retrieves a photo from the device's
 image gallery.  The image is passed to the success callback as a
-base64-encoded `String`, or as the URI for the image file.  
+Base64-encoded `String`, or as the URI for the image file.
 
 The `camera.getPicture` function opens the device's default camera
 application that allows users to snap pictures by default - this behavior occurs,
-when `Camera.sourceType` equals [`Camera.PictureSourceType.CAMERA`](#module_Camera.PictureSourceType).  
+when `Camera.sourceType` equals [`Camera.PictureSourceType.CAMERA`](#module_Camera.PictureSourceType).
 Once the user snaps the photo, the camera application closes and the application is restored.
 
 If `Camera.sourceType` is `Camera.PictureSourceType.PHOTOLIBRARY` or
@@ -134,7 +135,7 @@ The return value is sent to the [`cameraSuccess`](#module_camera.onSuccess) call
 one of the following formats, depending on the specified
 `cameraOptions`:
 
-- A `String` containing the base64-encoded photo image.
+- A `String` containing the Base64-encoded photo image.
 
 - A `String` representing the image file location on local storage (default).
 
@@ -155,11 +156,17 @@ than `DATA_URL`.
 
 __Supported Platforms__
 
-![](doc/img/android-success.png) ![](doc/img/blackberry-success.png) ![](doc/img/browser-success.png) ![](doc/img/firefox-success.png) ![](doc/img/fireos-success.png) ![](doc/img/ios-success.png) ![](doc/img/windows-success.png) ![](doc/img/wp8-success.png) ![](doc/img/ubuntu-success.png)
+- Android
+- BlackBerry
+- Browser
+- Firefox
+- FireOS
+- iOS
+- Windows
+- WP8
+- Ubuntu
 
-* [More examples](#camera-getPicture-examples)
-
-* [Quirks](#camera-getPicture-quirks)
+More examples [here](#camera-getPicture-examples). Quirks [here](#camera-getPicture-quirks).
 
 **Kind**: static method of <code>[camera](#module_camera)</code>  
 
@@ -182,7 +189,7 @@ after calling [`camera.getPicture`](#module_camera.getPicture). Applies only whe
 
 __Supported Platforms__
 
-![](doc/img/android-fail.png) ![](doc/img/blackberry-fail.png) ![](doc/img/browser-fail.png) ![](doc/img/firefox-fail.png) ![](doc/img/fireos-fail.png) ![](doc/img/ios-success.png) ![](doc/img/windows-fail.png) ![](doc/img/wp8-fail.png) ![](doc/img/ubuntu-fail.png)
+- iOS
 
 **Kind**: static method of <code>[camera](#module_camera)</code>  
 **Example**  
@@ -260,7 +267,7 @@ Optional parameters to customize the camera settings.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| DATA_URL | <code>number</code> | <code>0</code> | Return base64 encoded string |
+| DATA_URL | <code>number</code> | <code>0</code> | Return base64 encoded string. DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible |
 | FILE_URI | <code>number</code> | <code>1</code> | Return file uri (content://media/external/images/media/2 for Android) |
 | NATIVE_URI | <code>number</code> | <code>2</code> | Return native uri (eg. asset-library://... for iOS) |
 
@@ -350,12 +357,12 @@ A handle to an image picker popover.
 
 __Supported Platforms__
 
-![](doc/img/android-fail.png) ![](doc/img/blackberry-fail.png) ![](doc/img/browser-fail.png) ![](doc/img/firefox-fail.png) ![](doc/img/fireos-fail.png) ![](doc/img/ios-success.png) ![](doc/img/windows-fail.png) ![](doc/img/wp8-fail.png) ![](doc/img/ubuntu-fail.png)
+- iOS
 
 **Example**  
 ```js
 var cameraPopoverHandle = navigator.camera.getPicture(onSuccess, onFail,
-{ 
+{
     destinationType: Camera.DestinationType.FILE_URI,
     sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
     popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
@@ -374,21 +381,6 @@ window.onorientationchange = function() {
 
 #### Example <a name="camera-getPicture-examples"></a>
 
-Take a photo and retrieve it as a base64-encoded image:
-
-    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL
-    });
-
-    function onSuccess(imageData) {
-        var image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + imageData;
-    }
-
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
-
 Take a photo and retrieve the image's file location:
 
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
@@ -397,6 +389,27 @@ Take a photo and retrieve the image's file location:
     function onSuccess(imageURI) {
         var image = document.getElementById('myImage');
         image.src = imageURI;
+    }
+
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
+
+Take a photo and retrieve it as a Base64-encoded image:
+
+    /**
+     * Warning: Using DATA_URL is not recommended! The DATA_URL destination
+     * type is very memory intensive, even with a low quality setting. Using it
+     * can result in out of memory errors and application crashes. Use FILE_URI
+     * or NATIVE_URI instead.
+     */
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 25,
+        destinationType: Camera.DestinationType.DATA_URL
+    });
+
+    function onSuccess(imageData) {
+        var image = document.getElementById('myImage');
+        image.src = "data:image/jpeg;base64," + imageData;
     }
 
     function onFail(message) {
@@ -413,14 +426,14 @@ Take a photo and retrieve the image's file location:
 
 Amazon Fire OS uses intents to launch the camera activity on the device to capture
 images, and on phones with low memory, the Cordova activity may be killed.  In this
-scenario, the image may not appear when the cordova activity is restored.
+scenario, the image may not appear when the Cordova activity is restored.
 
 #### Android Quirks
 
 Android uses intents to launch the camera activity on the device to capture
 images, and on phones with low memory, the Cordova activity may be killed.  In this
 scenario, the result from the plugin call will be delivered via the resume event.
-See [the Android Lifecycle guide](http://cordova.apache.org/docs/en/dev/guide/platforms/android/lifecycle.html)
+See [the Android Lifecycle guide][android_lifecycle]
 for more information. The `pendingResult.result` value will contain the value that
 would be passed to the callbacks (either the URI/URL or an error message). Check
 the `pendingResult.pluginStatus` to determine whether or not the call was
@@ -428,11 +441,11 @@ successful.
 
 #### Browser Quirks
 
-Can only return photos as base64-encoded image.
+Can only return photos as Base64-encoded image.
 
 #### Firefox OS Quirks
 
-Camera plugin is currently implemented using [Web Activities](https://hacks.mozilla.org/2013/01/introducing-web-activities/).
+Camera plugin is currently implemented using [Web Activities][web_activities].
 
 #### iOS Quirks
 
@@ -529,7 +542,11 @@ Tizen only supports a `destinationType` of
 
 - Ignores the `cameraDirection` parameter.
 
-- Ignores the `saveToPhotoAlbum` parameter.  IMPORTANT: All images taken with the wp7/8 cordova camera API are always copied to the phone's camera roll.  Depending on the user's settings, this could also mean the image is auto-uploaded to their OneDrive.  This could potentially mean the image is available to a wider audience than your app intended.  If this a blocker for your application, you will need to implement the CameraCaptureTask as documented on msdn : [http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh394006.aspx](http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh394006.aspx)
-You may also comment or up-vote the related issue in the [issue tracker](https://issues.apache.org/jira/browse/CB-2083)
+- Ignores the `saveToPhotoAlbum` parameter.  IMPORTANT: All images taken with the WP8/8 Cordova camera API are always copied to the phone's camera roll.  Depending on the user's settings, this could also mean the image is auto-uploaded to their OneDrive.  This could potentially mean the image is available to a wider audience than your app intended. If this is a blocker for your application, you will need to implement the CameraCaptureTask as [documented on MSDN][msdn_wp8_docs]. You may also comment or up-vote the related issue in the [issue tracker][wp8_bug].
 
 - Ignores the `mediaType` property of `cameraOptions` as the Windows Phone SDK does not provide a way to choose videos from PHOTOLIBRARY.
+
+[android_lifecycle]: http://cordova.apache.org/docs/en/dev/guide/platforms/android/lifecycle.html
+[web_activities]: https://hacks.mozilla.org/2013/01/introducing-web-activities/
+[wp8_bug]: https://issues.apache.org/jira/browse/CB-2083
+[msdn_wp8_docs]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh394006.aspx
