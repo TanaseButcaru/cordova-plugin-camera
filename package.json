@@ -1,6 +1,6 @@
 {
-  "name": "cordova-plugin-camera",
-  "version": "2.1.2-dev",
+  "name": "cordova-plugin-camera-unofficial",
+  "version": "2.1.1-unofficial-1",
   "description": "Cordova Camera Plugin",
   "cordova": {
     "id": "cordova-plugin-camera",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-camera"
+    "url": "https://github.com/TanaseButcaru/cordova-plugin-camera-unofficial"
   },
   "keywords": [
     "cordova",
@@ -40,12 +40,6 @@
   ],
   "peerDependencies": {
     "cordova-plugin-file": ">=2.0.0"
-  },
-  "scripts": {
-    "precommit": "npm run gen-docs && git add README.md",
-    "gen-docs": "jsdoc2md --template \"jsdoc2md/TEMPLATE.md\" \"www/**/*.js\" --plugin \"dmd-plugin-cordova-plugin\" > README.md",
-    "test": "npm run jshint",
-    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
   },
   "author": "Apache Software Foundation",
   "license": "Apache-2.0",

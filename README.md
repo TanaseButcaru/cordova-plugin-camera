@@ -17,6 +17,24 @@
 #         under the License.
 -->
 
+UNOFFICIAL VERSION NOTICE
+-------------------------
+My unofficial releases are synced against upstream/master branch.  
+Also, this releases are tested & contains the latest changes from upstream AND can contain new features/fixes that are not yet merged or released in the upstream/master branch.
+
+
+You can install this plugin as any other cordova plugin, via CLI, using its name or git url:  
+``cordova plugin add cordova-plugin-camera-unofficial``  
+``cordova plugin add https://github.com/TanaseButcaru/cordova-plugin-camera-unofficial.git``  
+*You have to remove the original plugin, before installing this one.*
+
+
+Consider this branch & its releases as a bleeding-edge version.  
+Contributions are welcomed!  
+**Enjoy!**
+
+-------------------------
+
 [![Build Status](https://travis-ci.org/apache/cordova-plugin-camera.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-camera)
 
 # cordova-plugin-camera
@@ -314,7 +332,13 @@ Matches iOS UIPopoverArrowDirection constants to specify arrow location on popov
 
 <a name="module_CameraPopoverOptions"></a>
 ## CameraPopoverOptions
-iOS-only parameters that specify the anchor element location and arrowdirection of the popover when selecting images from an iPad's libraryor album.Note that the size of the popover may change to adjust to thedirection of the arrow and orientation of the screen.  Make sure toaccount for orientation changes when specifying the anchor elementlocation.
+iOS-only parameters that specify the anchor element location and arrow
+direction of the popover when selecting images from an iPad's library
+or album.
+Note that the size of the popover may change to adjust to the
+direction of the arrow and orientation of the screen.  Make sure to
+account for orientation changes when specifying the anchor element
+location.
 
 
 | Param | Type | Default | Description |
