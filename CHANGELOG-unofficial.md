@@ -1,3 +1,11 @@
+# 2.1.1-unofficial-1
+
+Release notes:
+ 
+ * [7ed1e4c](https://github.com/TanaseButcaru/cordova-plugin-camera-unofficial/commit/7ed1e4cd49c6b43604e32c3fad1bb8653f068be3) Sync to upstream/master.
+
+Note: changes made to ``FileHelper`` are not equal or even better than filepath port implementation (missing cases); keeping the filepath implementation.
+
 # 2.1.0-unofficial-4 / 5
 
 Bump version number for npmjs.
