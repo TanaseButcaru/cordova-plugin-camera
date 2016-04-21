@@ -358,24 +358,24 @@ static NSString* toBase64(NSData* data) {
                 // use image unedited as requested , don't resize
                 data = UIImageJPEGRepresentation(image, 1.0);
             } else {
-                if (options.usesGeolocation) {
-                    NSDictionary* controllerMetadata = [info objectForKey:@"UIImagePickerControllerMediaMetadata"];
-                    if (controllerMetadata) {
-                        self.data = data;
-                        self.metadata = [[NSMutableDictionary alloc] init];
-                        
-                        NSMutableDictionary* EXIFDictionary = [[controllerMetadata objectForKey:(NSString*)kCGImagePropertyExifDictionary]mutableCopy];
-                        if (EXIFDictionary)	{
-                            [self.metadata setObject:EXIFDictionary forKey:(NSString*)kCGImagePropertyExifDictionary];
-                        }
-                        
-                        if (IsAtLeastiOSVersion(@"8.0")) {
-                            [[self locationManager] performSelector:NSSelectorFromString(@"requestWhenInUseAuthorization") withObject:nil afterDelay:0];
-                        }
-                        [[self locationManager] startUpdatingLocation];
+                data = UIImageJPEGRepresentation(image, [options.quality floatValue] / 100.0f);
+            }
+            
+            if (options.usesGeolocation) {
+                NSDictionary* controllerMetadata = [info objectForKey:@"UIImagePickerControllerMediaMetadata"];
+                if (controllerMetadata) {
+                    self.data = data;
+                    self.metadata = [[NSMutableDictionary alloc] init];
+                    
+                    NSMutableDictionary* EXIFDictionary = [[controllerMetadata objectForKey:(NSString*)kCGImagePropertyExifDictionary]mutableCopy];
+                    if (EXIFDictionary)	{
+                        [self.metadata setObject:EXIFDictionary forKey:(NSString*)kCGImagePropertyExifDictionary];
                     }
-                } else {
-                    data = UIImageJPEGRepresentation(image, [options.quality floatValue] / 100.0f);
+                    
+                    if (IsAtLeastiOSVersion(@"8.0")) {
+                        [[self locationManager] performSelector:NSSelectorFromString(@"requestWhenInUseAuthorization") withObject:nil afterDelay:0];
+                    }
+                    [[self locationManager] startUpdatingLocation];
                 }
             }
         }
