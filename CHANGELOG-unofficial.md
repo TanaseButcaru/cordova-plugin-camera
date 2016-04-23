@@ -1,3 +1,9 @@
+# 2.2.0-unofficial-1
+
+Release notes:
+ 
+ * [27cb493](https://github.com/TanaseButcaru/cordova-plugin-camera-unofficial/commit/27cb493b6ded34c623fb5c7615b52e51ed632700) Sync to upstream/master.
+
 # 2.1.1-unofficial-1 / 2
 
 Release notes:
