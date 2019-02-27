@@ -21,6 +21,8 @@ description: Take pictures with the device camera.
 #         under the License.
 -->
 
+# WARNING: This project is no longer maintained.
+
 UNOFFICIAL VERSION NOTICE
 -------------------------
 My unofficial releases are synced against upstream/master branch.  
